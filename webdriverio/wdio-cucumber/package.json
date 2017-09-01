@@ -1,0 +1,32 @@
+{
+  "name": "wdio-cucumber-uiautomation",
+  "version": "1.0.0",
+  "description": "UI Automation using WebdriverIO and Cucumber",
+  "main": "wdio.conf.js",
+  "scripts": {
+    "wdio": "wdio wdio.conf.js",
+    "report": "allure generate test-output --clean -o reports && allure open reports",
+    "pretest": "rm -rf test-output",
+    "test": "npm run wdio",
+    "posttest": "npm run report"
+  },
+  "keywords": [
+    "Selenium",
+    "WebdriverIO",
+    "Cucumber",
+    "Chai"
+  ],
+  "author": "ragupathi ravi",
+  "license": "ISC",
+  "devDependencies": {
+    "allure-commandline": "^2.3.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "wdio-allure-reporter": "^0.1.2",
+    "wdio-cucumber-framework": "^0.3.1",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-spec-reporter": "^0.1.2",
+    "webdriverio": "^4.8.0"
+  }
+}

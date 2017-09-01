@@ -1,0 +1,5 @@
+node_modules
+error-shots
+.DS_Store
+reports
+test-output
