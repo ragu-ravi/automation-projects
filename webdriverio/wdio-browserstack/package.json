@@ -6,8 +6,7 @@
   "scripts": {
     "wdio": "wdio wdio.conf.js",
     "report": "allure generate test-output --clean -o reports && allure open reports",
-    "bs_local": "./bin/BrowserStackLocal -k 2uWxsmizVqPjGSfEPLw4 -F -forcelocal --local-identifier ragu_local_machine",
-    "pretest": "rm -rf test-output",
+    "pretest": "rm -rf test-output && ./bin/BrowserStackLocal -k 2uWxsmizVqPjGSfEPLw4 -F -forcelocal --local-identifier ragu_local_machine &",
     "test": "npm run wdio",
     "posttest": "npm run report"
   },
