@@ -2,12 +2,14 @@ const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 function getScreenshotName(basePath) {
   return function(context) {
-    const type = context.type;
-    const testName = context.test.title;
-    const browserVersion = parseInt(context.browser.version, 10);
-    const browserName = context.browser.name;
-    const browserWidth = context.meta.viewport.width;
-    return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}.png`);
+    const type = context.type,
+    testName = context.test.title,
+    browserVersion = parseInt(context.browser.version, 10),
+    browserName = context.browser.name,
+    browserViewport = context.meta.viewport,
+    browserWidth = browserViewport.width,
+    browserHeight = browserViewport.height;
+    return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
   };
 }
 exports.config = {
@@ -120,15 +122,15 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     services: ['selenium-standalone','visual-regression'],
     visualRegression: {
-      compare: new VisualRegressionCompare.LocalCompare({
-        referenceName: getScreenshotName(path.join(process.cwd(), 'screenshots/reference')),
-        screenshotName: getScreenshotName(path.join(process.cwd(), 'screenshots/screen')),
-        diffName: getScreenshotName(path.join(process.cwd(), 'screenshots/diff')),
-        misMatchTolerance: 0.01,
-      }),
-      viewportChangePause: 300,
-      //widths: [320, 480, 640, 1024]
-      // orientations: ['landscape'],
+    compare: new VisualRegressionCompare.LocalCompare({
+      referenceName: getScreenshotName(path.join(process.cwd(), 'screenshots/reference')),
+      screenshotName: getScreenshotName(path.join(process.cwd(), 'screenshots/screen')),
+      diffName: getScreenshotName(path.join(process.cwd(), 'screenshots/diff')),
+      misMatchTolerance: 0.01,
+    }),
+    viewportChangePause: 300,
+    viewports: [{ width: 320, height: 480 }, { width: 768, height: 1024 }, { width: 1280, height: 727 }],
+    orientations: ['landscape', 'portrait'],
     },//
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
