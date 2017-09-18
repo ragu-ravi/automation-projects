@@ -1,4 +1,4 @@
-import Page from '../page';
+import Page from '../../page';
 
 class SearchResults extends Page {
   get search_heading() { return $('h1.heading'); }

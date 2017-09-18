@@ -7,7 +7,7 @@
     "wdio": "wdio wdio.conf.js",
     "report": "allure generate test-output --clean -o reports && allure open reports",
     "pretest": "rm -rf test-output",
-    "test": "npm run wdio",
+    "test": "wdio",
     "posttest": "npm run report"
   },
   "keywords": [
