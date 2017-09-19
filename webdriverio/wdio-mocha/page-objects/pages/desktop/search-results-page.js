@@ -4,12 +4,8 @@ import Products from './sections/products_section'
 class SearchResults extends Page {
   get search_heading() { return $('h1.heading'); }
   get product_list() { return $$('.product-list--list-item'); }
-  get products() {
-     for (var results = [],size = this.product_list.length, i =1; i <= size; i++) {
-       results.push(new Products('.product-list--list-item',i));
-     }
-     return results;
-  }
+  get products() { return new Products('.product-list--list-item').items }
+
 
   get_search_heading() {
     this.search_heading.waitForExist();
