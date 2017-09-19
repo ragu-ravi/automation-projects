@@ -1,4 +1,4 @@
-let app = require('../viewport/app')()
+let app = require('../app')[process.env.VIEWPORT]
 
 describe('Feature: Search', () => {
   context('Anonyomus search for a product', () => {
