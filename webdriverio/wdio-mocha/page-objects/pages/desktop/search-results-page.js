@@ -1,10 +1,10 @@
 import Page from '../../page';
-import Products from './sections/products_section'
+import product_items from './sections/products_section'
 
 class SearchResults extends Page {
   get search_heading() { return $('h1.heading'); }
   get product_list() { return $$('.product-list--list-item'); }
-  get products() { return new Products('.product-list--list-item').items }
+  get products() { return product_items('.product-list--list-item') }
 
 
   get_search_heading() {
