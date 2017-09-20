@@ -7,11 +7,4 @@ class Product {
   get title() {return this.item.element('.product-tile--title');}
 }
 
-function product_items(css) {
-    for(var results=[],i=1,size=$$(css).length;i <= size; i++) {
-      results.push(new Product(css,i));
-    }
-    return results
-  }
-
-module.exports = product_items;
+module.exports = Product;

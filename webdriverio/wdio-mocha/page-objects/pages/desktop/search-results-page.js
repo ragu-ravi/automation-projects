@@ -1,10 +1,12 @@
 import Page from '../../page';
-import product_items from './sections/products_section'
+import Product from './sections/products_section'
+import Section from '../../helpers/sections'
 
 class SearchResults extends Page {
   get search_heading() { return $('h1.heading'); }
   get product_list() { return $$('.product-list--list-item'); }
-  get products() { return product_items('.product-list--list-item') }
+  get products() { return new Section(Product,'.product-list--list-item').items() }
+  get product() { return new Section(Product,'.product-list--list-item').item()}
 
 
   get_search_heading() {
