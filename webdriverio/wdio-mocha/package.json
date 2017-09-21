@@ -9,7 +9,7 @@
     "pretest": "rm -rf test-output",
     "test": "VIEWPORT=desktop wdio",
     "chrome_desktop": "VIEWPORT=desktop wdio",
-    "chrome_mobile": "VIEWPORT=mobile wdio wdio.mobile.config",
+    "chrome,_mobile": "VIEWPORT=mobile wdio wdio.mobile.config",
     "posttest": "npm run report"
   },
   "keywords": [
