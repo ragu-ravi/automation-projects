@@ -7,7 +7,9 @@
     "wdio": "wdio wdio.conf.js",
     "report": "allure generate test-output --clean -o reports && allure open reports",
     "pretest": "rm -rf test-output",
-    "test": "wdio",
+    "test": "VIEWPORT=desktop wdio",
+    "chrome_desktop": "VIEWPORT=desktop wdio",
+    "chrome_mobile": "VIEWPORT=mobile wdio wdio.mobile.config",
     "posttest": "npm run report"
   },
   "keywords": [
