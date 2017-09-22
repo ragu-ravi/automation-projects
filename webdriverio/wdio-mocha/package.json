@@ -4,12 +4,12 @@
   "description": "UI Automation using WebdriverIO and Mocha",
   "main": "wdio.conf.js",
   "scripts": {
-    "wdio": "wdio wdio.conf.js",
+    "wdio": "wdio config/wdio.conf.js",
     "report": "allure generate test-output --clean -o reports && allure open reports",
     "pretest": "rm -rf test-output",
-    "test": "VIEWPORT=desktop wdio",
-    "chrome_desktop": "VIEWPORT=desktop wdio",
-    "chrome,_mobile": "VIEWPORT=mobile wdio wdio.mobile.config",
+    "test": "VIEWPORT=desktop npm run wdio",
+    "chrome_desktop": "VIEWPORT=desktop npm run wdio",
+    "chrome_mobile": "VIEWPORT=mobile wdio config/wdio.mobile.config",
     "posttest": "npm run report"
   },
   "keywords": [
