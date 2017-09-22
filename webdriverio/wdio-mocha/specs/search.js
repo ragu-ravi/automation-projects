@@ -1,21 +1,23 @@
-import HomePage from '../page-objects/pages/home-page';
-import SearchResults from '../page-objects/pages/search-results-page';
+let app = require('../page-objects/helpers/viewports')[process.env.VIEWPORT]
 
 describe('Feature: Search', () => {
   context('Anonyomus search for a product', () => {
-    const query = 'apples';
+    const query = 'Apple';
 
     before(() => {
-      HomePage.open();
-      HomePage.performSearch(query);
+      app.home_page.open();
+      app.home_page.performSearch(query);
     });
 
     it('search heading should include search term', () => {
-      expect(SearchResults.get_search_heading()).to.include(query);
+      expect(app.search_page.get_search_heading()).to.include(query);
     });
 
     it('product list should not be empty', () => {
-      expect(SearchResults.get_product_lists()).to.not.have.lengthOf(0);
+      expect(app.search_page.products).to.not.have.lengthOf(0);
+      console.log('Title of 1st product :', app.search_page.product.title.getText());
+      console.log('Title of 2nd product :', app.search_page.products[2].title.getText());
+      expect(app.search_page.products[0].title.getText()).to.include(query);
     });
   });
 });

@@ -44,7 +44,11 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome'
+        browserName: 'chrome',
+        chromeOptions: {
+           args: ['window-size=1280,800']
+       }
+
     }],
     //
     // ===================
@@ -165,7 +169,6 @@ exports.config = {
     before: function (capabilities, specs) {
       const chai = require('chai');
       global.expect = chai.expect;
-      browser.windowHandleSize({width: 1280, height: 800});
     },
     //
     /**
