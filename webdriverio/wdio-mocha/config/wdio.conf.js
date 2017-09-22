@@ -1,4 +1,5 @@
 const timeout = process.env.DEBUG ? 999999999 : 30000;
+global.set_viewport = require('../page-objects/helpers/viewports');
 exports.config = {
 
     //

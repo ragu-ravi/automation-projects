@@ -1,4 +1,4 @@
-module.exports =  {
+module.exports = function () { return {
   mobile: {
     home_page: require('../pages/mobile/home-page'),
     search_page: require('../pages/mobile/search-results-page')
@@ -7,4 +7,5 @@ module.exports =  {
     home_page: require('../pages/desktop/home-page'),
     search_page: require('../pages/desktop/search-results-page')
   }
+}[process.env.VIEWPORT || 'desktop'];
 }

@@ -1,5 +1,4 @@
-let app = require('../page-objects/helpers/viewports')[process.env.VIEWPORT]
-
+let app = set_viewport();
 describe('Feature: Search', () => {
   context('Anonyomus search for a product', () => {
     const query = 'Apple';
