@@ -1,5 +1,6 @@
 exports.config = {
 
+    var timeout = process.env.DEBUG ? 999999999 : 30000;
     //
     // ==================
     // Specify Test Files
@@ -133,7 +134,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 30000,
+        timeout: timeout,
         compilers: ['js:babel-register']
     },
     //
