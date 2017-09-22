@@ -1,5 +1,6 @@
 import Page from '../../page';
 import Product from '../../sections/products_section'
+import {section, sections} from '../../helpers/sections'
 
 class SearchResults extends Page {
   get search_heading() { return $('h1.heading'); }

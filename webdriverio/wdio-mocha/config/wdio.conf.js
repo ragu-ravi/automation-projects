@@ -168,10 +168,7 @@ exports.config = {
      */
     before: function (capabilities, specs) {
       const chai = require('chai');
-      const sections = require('../page-objects/helpers/sections');
       global.expect = chai.expect;
-      global.section = sections.section;
-      global.sections = sections.sections;
     },
     //
     /**
